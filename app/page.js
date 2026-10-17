@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { siJetbrains, siPolygon, siDigitalocean, siUnstop, siSketch } from "simple-icons";
+import FlexCarousel from "@/components/FlexCarousel";
 
 const FRAME_COUNT = 300;
 const framePath = (index) => `/scroll-frames/frame_${String(index + 1).padStart(4, "0")}.jpg`;
@@ -30,6 +31,7 @@ const projects = [
   { title: "Sora", tag: "Civic tech / 2024", image: "/scroll-frames/frame_0216.jpg", copy: "A beautifully simple map for reporting and following neighbourhood-scale public issues together.", stack: "React · Maps · Supabase" },
   { title: "Mori", tag: "Culture / 2023", image: "/scroll-frames/frame_0282.jpg", copy: "An open archive that lets independent artists preserve, annotate, and share their work on their own terms.", stack: "Three.js · IPFS · Archive" },
 ];
+const carouselItems = projects.map((project) => ({ src: project.image, alt: project.title, title: project.title, subtitle: project.tag }));
 
 function SponsorMark({ sponsor }) {
   if (sponsor.icon) return <svg viewBox="0 0 24 24" aria-hidden="true"><path d={sponsor.icon.path} /></svg>;
@@ -172,8 +174,10 @@ export default function Home() {
     </section>
     <section className="projects-section" id="projects">
       <div className="projects-top"><p>03 — PAST PROJECTS</p><h2>WORK THAT<br /><i>KEPT GROWING.</i></h2><span>SELECT A STORY ↘</span></div>
-      <div className="project-layout">
-        <div className="project-rail">{projects.map((project, index) => <button className={index === activeProject ? "project-thumb active" : "project-thumb"} onClick={() => setActiveProject(index)} key={project.title}><img src={project.image} alt="" /><span>{String(index + 1).padStart(2, "0")}</span><b>{project.title}</b></button>)}</div>
+      <div className="project-layout project-carousel-layout">
+        <div className="project-carousel-wrap">
+          <FlexCarousel items={carouselItems} preset="liquid" intro="rise" cardHeight={0.5} gap={12} squeeze={0.2} focusOnClick captions onChange={(index) => setActiveProject(index)} />
+        </div>
         <article className="project-detail"><div className="project-image" style={{ backgroundImage: `url(${projects[activeProject].image})` }} /><div className="project-detail-copy"><p>{projects[activeProject].tag}</p><h3>{projects[activeProject].title}</h3><span className="project-rule" /><p className="project-description">{projects[activeProject].copy}</p><small>{projects[activeProject].stack}</small><a href="#apply">EXPLORE CASE STUDY ↗</a></div></article>
       </div>
     </section>

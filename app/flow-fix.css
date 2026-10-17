@@ -15,3 +15,12 @@
 .ritual-count { display:none; }
 @media(max-width:900px){.ritual-stage{grid-template-columns:repeat(2,1fr)}.ritual-caption{grid-template-columns:1fr 2fr}.ritual-caption span{display:none}.ritual-card,.ritual-card:nth-child(n){min-height:450px}}
 @media(max-width:700px){.how-flow{padding:75px 20px}.ritual-caption{display:block}.ritual-caption h2{text-align:left}.ritual-stage{display:grid;grid-template-columns:1fr;margin-top:42px;gap:14px}.ritual-card,.ritual-card:nth-child(n){min-height:410px;padding:20px;border-radius:5px 26px 5px 26px}.ritual-illustration{height:150px;margin:-20px -20px 21px}.ritual-copy>p:not(.ritual-label){min-height:auto}.ritual-card > b{font-size:45px}}
+
+.project-carousel-layout { grid-template-columns: minmax(0, 1.35fr) minmax(290px, .85fr); align-items: stretch; }
+.project-carousel-wrap { position: relative; min-height: 560px; overflow: hidden; border-radius: 44px 5px 44px 5px; background: rgba(52, 25, 53, .08); box-shadow: inset 0 0 0 1px rgba(64, 28, 61, .14); }
+.project-carousel-wrap .flex-carousel { color: #2b1931; }
+.project-carousel-wrap .flex-carousel__caption { font-family: "DM Mono", monospace; color: #2b1931; }
+.project-carousel-wrap .flex-carousel__title { font-size: 14px; letter-spacing: .07em; }
+.project-carousel-wrap .flex-carousel__subtitle { font-family: "DM Sans", sans-serif; font-size: 12px; letter-spacing: 0; }
+.project-carousel-wrap .flex-carousel:focus-visible { box-shadow: inset 0 0 0 2px #a13b6b; }
+@media(max-width:700px){.project-carousel-layout{display:block}.project-carousel-wrap{min-height:420px;height:420px;margin-bottom:20px;border-radius:30px 4px 30px 4px}.project-carousel-wrap .flex-carousel__caption{top:calc(50% + var(--flex-carousel-half) * var(--flex-carousel-lift, 1) + 15px)}}

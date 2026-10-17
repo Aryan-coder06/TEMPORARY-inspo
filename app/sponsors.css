@@ -1,0 +1,107 @@
+.trusted-section {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  padding: 118px 7vw 58px;
+  color: #2a1830;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(243, 157, 196, .46), transparent 22%),
+    radial-gradient(circle at 91% 78%, rgba(179, 141, 215, .37), transparent 24%),
+    linear-gradient(135deg, #f9f0e9 0%, #f1e4e5 47%, #e7dceb 100%);
+}
+.trusted-section::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(55, 30, 55, .12);
+  pointer-events: none;
+}
+.trusted-kicker, .trusted-foot {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font: 500 10px "DM Mono", monospace;
+  letter-spacing: 1.35px;
+}
+.trusted-kicker { margin: 0 0 28px; opacity: .65; }
+.trusted-section h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 42px;
+  text-align: center;
+  font-size: clamp(47px, 6vw, 92px);
+  line-height: .82;
+  letter-spacing: -.08em;
+}
+.trusted-section h2 i { color: #9d3c6a; font-family: "Playfair Display", serif; font-weight: 600; }
+.sponsor-wall {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(55, 30, 55, .18);
+  border-left: 1px solid rgba(55, 30, 55, .18);
+}
+.sponsor {
+  min-height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px 14px;
+  border-right: 1px solid rgba(55, 30, 55, .18);
+  border-bottom: 1px solid rgba(55, 30, 55, .18);
+  font-size: clamp(17px, 1.65vw, 25px);
+  font-weight: 600;
+  letter-spacing: -.05em;
+  color: #2a1830;
+  transition: background .35s ease, color .35s ease, transform .35s ease;
+}
+.sponsor:hover { background: #2a1830; color: #f9eee8; transform: scale(1.035); z-index: 2; }
+.sponsor svg { width: 28px; height: 28px; fill: currentColor; flex: 0 0 auto; }
+.sponsor-glyph { display: inline-grid; min-width: 29px; place-items: center; font-family: "DM Mono", monospace; font-size: .8em; letter-spacing: -.12em; }
+.sponsor-glyph.tezos { font-family: Georgia, serif; font-size: 1.5em; font-weight: 700; }
+.sponsor-glyph.filecoin { font: 700 1.55em Georgia, serif; }
+.sponsor-glyph.cssbattle { font-size: .66em; font-weight: 700; }
+.sponsor-glyph.devfolio { font-size: 1em; font-weight: 700; }
+.sponsor-glyph.celo, .sponsor-glyph.voiceflow { font-size: .65em; font-weight: 700; letter-spacing: .02em; border: 2px solid currentColor; border-radius: 50%; width: 28px; height: 28px; }
+.trusted-foot { margin: 32px 0 0; opacity: .72; }.trusted-foot span { color: #a13b6b; margin-left: 8px; }
+
+/* Keep the cinematic canvas inside the hero stacking context, above its fallback color. */
+.frame-canvas { z-index: 0; }
+.frame-shade { z-index: 1; }
+.opening-copy { z-index: 2; }
+.manifesto { z-index: 3; }
+.site-header, .scroll-index { z-index: 4; }
+.sponsor-marquee {
+  position: relative;
+  z-index: 1;
+  margin: 28px -7vw 0;
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(55, 30, 55, .18);
+  border-bottom: 1px solid rgba(55, 30, 55, .18);
+  background: rgba(255, 249, 243, .27);
+}
+.sponsor-marquee::before, .sponsor-marquee::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: min(12vw, 130px);
+  pointer-events: none;
+}
+.sponsor-marquee::before { left: 0; background: linear-gradient(90deg, #f7ede7, transparent); }
+.sponsor-marquee::after { right: 0; background: linear-gradient(-90deg, #ebdfeb, transparent); }
+.sponsor-marquee-track { display: flex; align-items: center; width: max-content; animation: sponsor-roll 34s linear infinite; }
+.sponsor-marquee:hover .sponsor-marquee-track { animation-play-state: paused; }
+.marquee-sponsor { display: flex; align-items: center; gap: 9px; margin: 0 30px; color: #321c35; white-space: nowrap; font-size: 18px; font-weight: 600; letter-spacing: -.045em; }
+.marquee-sponsor svg { width: 25px; height: 25px; fill: currentColor; }.marquee-sponsor i { margin-left: 27px; color: #a13b6b; font-style: normal; font-size: 12px; }
+@keyframes sponsor-roll { to { transform: translateX(-50%); } }
+@media (max-width: 700px) {
+  .trusted-section { padding: 83px 20px 35px; }.trusted-section::before { inset: 9px; }
+  .trusted-kicker, .trusted-foot { font-size: 8px; line-height: 1.55; }.trusted-section h2 { margin-bottom: 50px; font-size: 53px; }
+  .sponsor-wall { grid-template-columns: repeat(2, 1fr); }.sponsor { min-height: 102px; padding: 14px 8px; gap: 6px; font-size: 18px; }.sponsor svg { width: 21px; height: 21px; }
+  .sponsor-marquee { margin: 23px -20px 0; padding: 14px 0; }.marquee-sponsor { margin: 0 17px; font-size: 16px; }.marquee-sponsor i { margin-left: 15px; }.marquee-sponsor svg { width: 21px; height: 21px; }
+}

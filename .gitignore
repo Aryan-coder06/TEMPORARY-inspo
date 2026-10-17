@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+
+# Local source/reference media; optimized scroll frames in public/scroll-frames are retained.
+images.zip
+images2.zip
+trial.mp4
+Screencast from 2026-10-17 14-23-45.mp4
+public/frames/

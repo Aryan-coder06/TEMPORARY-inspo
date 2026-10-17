@@ -26,10 +26,10 @@ const rituals = [
 ];
 
 const projects = [
-  { title: "Mizu", tag: "Climate / 2025", image: "/scroll-frames/frame_0046.jpg", copy: "A community water-monitoring kit that turns local observations into clean, open environmental data.", stack: "Python · LoRa · Open data" },
-  { title: "Kintsugi", tag: "Accessibility / 2024", image: "/scroll-frames/frame_0128.jpg", copy: "A browser companion helping students turn dense learning material into adaptable, accessible formats.", stack: "Next.js · AI · Web Speech" },
-  { title: "Sora", tag: "Civic tech / 2024", image: "/scroll-frames/frame_0216.jpg", copy: "A beautifully simple map for reporting and following neighbourhood-scale public issues together.", stack: "React · Maps · Supabase" },
-  { title: "Mori", tag: "Culture / 2023", image: "/scroll-frames/frame_0282.jpg", copy: "An open archive that lets independent artists preserve, annotate, and share their work on their own terms.", stack: "Three.js · IPFS · Archive" },
+  { title: "Mizu", tag: "Climate / 2025", image: "/projects/mizu.jpg", copy: "A community water-monitoring kit that turns local observations into clean, open environmental data.", stack: "Python · LoRa · Open data" },
+  { title: "Kintsugi", tag: "Accessibility / 2024", image: "/projects/kintsugi.jpg", copy: "A browser companion helping students turn dense learning material into adaptable, accessible formats.", stack: "Next.js · AI · Web Speech" },
+  { title: "Sora", tag: "Civic tech / 2024", image: "/projects/sora.jpg", copy: "A beautifully simple map for reporting and following neighbourhood-scale public issues together.", stack: "React · Maps · Supabase" },
+  { title: "Mori", tag: "Culture / 2023", image: "/projects/mori.jpg", copy: "An open archive that lets independent artists preserve, annotate, and share their work on their own terms.", stack: "Three.js · IPFS · Archive" },
 ];
 const carouselItems = projects.map((project) => ({ src: project.image, alt: project.title, title: project.title, subtitle: project.tag }));
 
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="project-carousel-wrap">
           <FlexCarousel items={carouselItems} preset="liquid" intro="rise" cardHeight={0.5} gap={12} squeeze={0.2} focusOnClick captions onChange={(index) => setActiveProject(index)} />
         </div>
-        <article className="project-detail"><div className="project-image" style={{ backgroundImage: `url(${projects[activeProject].image})` }} /><div className="project-detail-copy"><p>{projects[activeProject].tag}</p><h3>{projects[activeProject].title}</h3><span className="project-rule" /><p className="project-description">{projects[activeProject].copy}</p><small>{projects[activeProject].stack}</small><a href="#apply">EXPLORE CASE STUDY ↗</a></div></article>
+        <article className="project-detail"><div className="project-image" style={{ backgroundImage: `url(${projects[activeProject].image})` }} /><div className="project-detail-copy"><p>{projects[activeProject].tag}</p><h3>{projects[activeProject].title}</h3><span className="project-rule" /><p className="project-description">{projects[activeProject].copy}</p><small>{projects[activeProject].stack}</small><a href="https://github.com/opencodeiiita/" target="_blank" rel="noreferrer">VIEW ON OPENCODE GITHUB ↗</a></div></article>
       </div>
     </section>
   </main>;
